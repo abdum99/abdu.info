@@ -244,7 +244,7 @@ function Newsletter() {
   )
 }
 
-function Resume() {
+function Work() {
   let resume = [
     {
       company: 'Sutter Hill Ventures',
@@ -340,15 +340,11 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Link href="/experience" scroll={false} className='flex justify-center py-4 text-xs text-zinc-400'>
+      <Link href="/experience" scroll={false} className='flex justify-center py-4 text-xs w-fill'>
+        <span className="text-zinc-400 hover:text-zinc-500">
         View more..
+        </span>
       </Link>
-      <Button href="/abdu_mohamdy_resume.pdf" target="_blank" variant="secondary" className="group w-full">
-        <PiFileTextDuotone size={20} className='fill-zinc-400 group-hover:fill-zinc-500'/>
-        <p className='text-zinc-500 group-hover:text-zinc-600'>
-        Download Resume
-        </p>
-      </Button>
     </div>
     </motion.div>
   )
@@ -395,7 +391,7 @@ function Photos() {
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.1 }}
       >
-      <div className="flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
+      <div className="flex justify-center gap-5 overflow-x-scroll py-4 sm:gap-8">
         {[tahoePic, paragladePic, cafePic, oreoPic, paintingsPic].map((image, imageIndex) => (
           <motion.div
             key={imageIndex}
@@ -596,8 +592,14 @@ export default function Home({ articles }) {
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <SelectedProjects articles={articles}/>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
+            <Work />
+            <Button href="/abdu_mohamdy_resume.pdf" target="_blank" variant="secondary" className="group w-full bg-zinc-800 hover:bg-zinc-900">
+              <PiFileTextDuotone size={20} className='fill-zinc-100 group-hover:fill-zinc-50'/>
+              <p className='text-zinc-100 group-hover:text-zinc-50'>
+              Download Resume
+              </p>
+            </Button>
             <Newsletter />
-            <Resume />
           </div>
         </div>
       </Container>
