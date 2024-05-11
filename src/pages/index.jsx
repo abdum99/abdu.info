@@ -32,6 +32,7 @@ import tahoePic from '@/images/pics/tahoe_pic.jpg'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
+import { ReactTyped } from 'react-typed'
 
 const avatarImage = igPic
 
@@ -138,6 +139,43 @@ function Article({ article }) {
       <Card.Description>{article.description}</Card.Description>
       <Card.Cta>Read article</Card.Cta>
     </Card>
+  )
+}
+
+const projectSnippetMotionVariant = {
+  offscreen: {
+    x: -10,
+    opacity: 0,
+  },
+  onscreen: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "ease-in",
+      duration: 0.8
+    }
+  }
+};
+
+function ProjectSnippet({ project }) {
+  return (
+    <motion.div
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ amount: 0.2 }}
+      variants={projectSnippetMotionVariant}
+    >
+    <Card as="projsnippet">
+      <Card.Title href={`/projects#${project.slug}`}>
+        {project.title}
+      </Card.Title>
+      <Card.Eyebrow as="time" dateTime={project.date} decorate>
+        {formatDate(project.date)}
+      </Card.Eyebrow>
+      <Card.Description>{project.description}</Card.Description>
+      <Card.Cta>Read more..</Card.Cta>
+    </Card>
+    </motion.div>
   )
 }
 
@@ -352,9 +390,11 @@ function Intro() {
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
               ABDU MOHAMDY
             </h1>
-            <h2 className="text-2xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              Software Engineer
-            </h2>
+            <ReactTyped
+              strings={["> Software Engineer"]}
+              typeSpeed={40} 
+              className="text-2xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+              />
           </div>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I'm Abdu, a software engineer based out of San Francisco. I love research and hacking and I'm passtionate about education accessibility and freedom of the press. I enjoy reading, cooking, and building objectively cool stuff in my free time.
@@ -475,7 +515,7 @@ function SelectedProjects({ articles }) {
       </div>
       <div className="flex flex-col gap-16">
         {articles.map((article) => (
-          <Article key={article.slug} article={article} />
+          <ProjectSnippet key={article.slug} project={article} />
         ))}
       </div>
     </div>
