@@ -3,14 +3,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
 
+import { PiNetworkDuotone, PiCpuDuotone, PiShieldCheckeredDuotone} from "react-icons/pi";
+
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import {
   GitHubIcon,
-  InstagramIcon,
   LinkedInIcon,
-  TwitterIcon,
+  HashnodeIcon
 } from '@/components/SocialIcons'
 import logoAirbnb from '@/images/logos/airbnb.svg'
 import logoFacebook from '@/images/logos/facebook.svg'
@@ -139,7 +140,7 @@ function Article({ article }) {
 function SocialLink({ icon: Icon, ...props }) {
   return (
     <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
+      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-700 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
     </Link>
   )
 }
@@ -257,18 +258,17 @@ function Resume() {
 }
 
 function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2'];
 
   return (
-    <div className="mt-16 sm:mt-20">
+    <div className="my-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
         {[tahoePic, paragladePic, cafePic, oreoPic, paintingsPic].map((image, imageIndex) => (
           <div
             key={imageIndex}
-            className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-              rotations[imageIndex % rotations.length]
-            )}
+            className={
+              `relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl transition ease-in duration-300 hover:-translate-y-2 break-before-auto ${rotations[imageIndex % rotations.length]}`
+            }
           >
             <Image
               src={image}
@@ -285,7 +285,7 @@ function Photos() {
 
 function Intro() {
   return (
-    <Container className="mt-9">
+    <Container className="my-20">
       <div className='flex flex-row-reverse'>
         <div className='flex-initial basis-1/3 min-w-80 m-6'>
           <Image
@@ -297,40 +297,121 @@ function Intro() {
           />
         </div>
         <div className="max-w-4xl basis-2/3 mt-8">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            ABDU MOHAMDY
-          </h1>
-          <h2 className="text-2xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Software Engineer
-          </h2>
+          <div className='mb-8'>
+            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+              ABDU MOHAMDY
+            </h1>
+            <h2 className="text-2xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+              Software Engineer
+            </h2>
+          </div>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I'm Abdu, a software engineer based out of San Francisco. I love research and hacking and I'm passtionate about education accessibility and freedom of the press. I enjoy reading, cooking, and building objectively cool stuff in my free time.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
-              href="https://twitter.com"
-              aria-label="Follow on Twitter"
-              icon={TwitterIcon}
-            />
-            <SocialLink
-              href="https://instagram.com"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-            />
-            <SocialLink
-              href="https://github.com"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href="https://linkedin.com"
-              aria-label="Follow on LinkedIn"
+              href="https://linkedin.com/in/amohamdy99"
+              aria-label="LinkedIn"
               icon={LinkedInIcon}
+              target="_blank"
+            />
+            <SocialLink
+              href="https://github.com/abdum99"
+              aria-label="GitHub"
+              icon={GitHubIcon}
+              target="_blank"
+            />
+            <SocialLink
+              href="https://hashnode.com/@amohamdy"
+              aria-label="Hashnode"
+              icon={HashnodeIcon}
+              target="_blank"
             />
           </div>
         </div>
       </div>
     </Container>
+  );
+}
+
+function WhatIDo() {
+  return (
+    <div className='flex inset-0 justify-center my-12'>
+    <div class="bg-zinc-900 text-white w-full flex justify-center dark:bg-zinc-950 py-8">
+    <div class="max-w-screen-xl px-4 py-4 sm:px-6 sm:py-12 lg:px-8 lg:py-8">
+      <div class="mx-auto max-w-xl text-center">
+        <h1 className="text-2xl font-bold sm:text-4xl">What I Do</h1>
+
+        <p class="mt-4 text-zinc-300">
+          I'm a Backend engineer with experience in Distributed Systems, Networking, Security, Infrastructure and Embedded Development.
+        </p>
+      </div>
+
+      <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div
+          class="block rounded-xl border border-zinc-800/80 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+        >
+          <PiNetworkDuotone size={36} color='#db2777'/>
+          <h2 className="mt-4 text-xl font-bold text-white">Systems</h2>
+          <p class="mt-1 text-sm text-gray-300">
+            I studied Distributed Systems, Networking and Kernel Development and I enjoy working on systems with multiple moving components. I also love reading books and research papers on the topic. 
+          </p>
+          <div class="mt-1 text-sm text-gray-300">
+            Most notably I have worked on:
+            <ul>
+              <li className='ps-2'>- Operating System Kernels in Rust & C</li>
+              <li className='ps-2'>- SASE & ZTA Networks</li>
+              <li className='ps-2'>- MPLS </li>
+              <li className='ps-2'>- Distristful Distributed Systems </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="block rounded-xl border border-zinc-800/80 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+        >
+          <PiCpuDuotone size={36} color='#db2777'/>
+          <h2 className="mt-4 text-xl font-bold text-white">Embedded</h2>
+          <p class="mt-1 text-sm text-zinc-300">
+            I love working close to the hardware. I have a lot of experience working with low-power micro-controllers and SBCs like Raspberry Pi, ESP and Teensy boards.
+          </p>
+          <div class="mt-1 text-sm text-zinc-300">
+            I have worked with/on:
+            <ul>
+              <li className='ps-2'>- RTOS</li>
+              <li className='ps-2'>- SPI, I2C, UART</li>
+              <li className='ps-2'>- Many IoT Devices</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="block rounded-xl border border-zinc-800/80 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+        >
+          <PiShieldCheckeredDuotone size={36} color='#db2777'/>
+          <h2 className="mt-4 text-xl font-bold text-white">Security & Cryptography</h2>
+          <div class="mt-1 text-sm text-gray-300">
+            I enjoy breaking things (legally!). I studied and TA'ed classes in Computer and Network Security, and Cryptography. I have also built a repertoire of skills in:
+            <ul>
+              <li className='ps-2'>- Systems Security</li>
+              <li className='ps-2'>- Network Security</li>
+              <li className='ps-2'>- Web Security</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <a
+          href="#"
+          class="inline-block rounded bg-pink-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-pink-700 focus:outline-none focus:ring focus:ring-yellow-400"
+        >
+          Contact Me
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
   );
 }
 
@@ -347,7 +428,8 @@ export default function Home({ articles }) {
         />
       </Head>
       <Intro />
-      <Photos />
+      <WhatIDo />
+      <Photos /> 
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
