@@ -17,6 +17,11 @@ import {
   LinkedInIcon,
   HashnodeIcon
 } from '@/components/SocialIcons'
+
+import logoShv from '@/images/logos/shv.png'
+import logoMeta from '@/images/logos/meta.png'
+import logoGoogle from '@/images/logos/google.png'
+import logoNvidia from '@/images/logos/nvidia.png'
 import logoAirbnb from '@/images/logos/airbnb.svg'
 import logoFacebook from '@/images/logos/facebook.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
@@ -163,7 +168,7 @@ function ProjectSnippet({ project }) {
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
       variants={projectSnippetMotionVariant}
     >
     <Card as="projsnippet">
@@ -189,7 +194,28 @@ function SocialLink({ icon: Icon, ...props }) {
 }
 
 function Newsletter() {
+  const newsletterMotionVariant = {
+    offscreen: {
+      x: 40,
+      opacity: 0,
+    },
+    onscreen: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "ease-in",
+        duration: 1
+      }
+    }
+  };
+
   return (
+    <motion.div
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={newsletterMotionVariant}
+    >
     <form
       action="/thank-you"
       className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
@@ -214,45 +240,67 @@ function Newsletter() {
         </Button>
       </div>
     </form>
+    </motion.div>
   )
 }
 
 function Resume() {
   let resume = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
-      logo: logoPlanetaria,
-      start: '2019',
+      company: 'Sutter Hill Ventures',
+      title: 'Software Engineer',
+      logo: logoShv,
+      start: '2023',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear(),
       },
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
-      logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      company: 'Meta',
+      title: 'Software Engineer Intern',
+      logo: logoMeta,
+      start: '2022',
+      end: '2022',
     },
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
-      logo: logoFacebook,
-      start: '2011',
-      end: '2014',
+      company: 'Google',
+      title: 'Software Engineer Intern',
+      logo: logoGoogle,
+      start: '2021',
+      end: '2021',
     },
     {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
-      logo: logoStarbucks,
+      company: 'Nvidia',
+      title: 'Software Engineer Intern',
+      logo: logoNvidia,
       start: '2008',
       end: '2011',
     },
   ]
 
+  const resumeMotionVariant = {
+    offscreen: {
+      y: -40,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "ease-in",
+        duration: 1
+      }
+    }
+  };
+
   return (
+    <motion.div
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={resumeMotionVariant}
+    >
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
@@ -261,8 +309,8 @@ function Resume() {
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
-            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+            <div className="relative mt-5 p-0.5 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+              <Image src={role.logo} alt="" className="w-20 rounded-full" unoptimized />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <dt className="sr-only">Company</dt>
@@ -292,13 +340,17 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="/abdu_mohamdy_resume.pdf" target="_blank" variant="secondary" className="group mt-6 w-full">
+      <Link href="/experience" scroll={false} className='flex justify-center py-4 text-xs text-zinc-400'>
+        View more..
+      </Link>
+      <Button href="/abdu_mohamdy_resume.pdf" target="_blank" variant="secondary" className="group w-full">
         <PiFileTextDuotone size={20} className='fill-zinc-400 group-hover:fill-zinc-500'/>
         <p className='text-zinc-500 group-hover:text-zinc-600'>
         Download Resume
         </p>
       </Button>
     </div>
+    </motion.div>
   )
 }
 
