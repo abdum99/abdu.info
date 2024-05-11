@@ -357,19 +357,13 @@ function Resume() {
 function AnimationsOnScroll() {
   return (
     <div className="flex justify-center">
-      <TEAnimation
-        animation="[slide-right_1s_ease-in-out]"
-        start="onScroll"
-        className="[&>svg]:w-11"
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-        >
-          <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
-        </svg>
-      </TEAnimation>
+        <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
+      </svg>
     </div>
   );
 }
@@ -404,10 +398,10 @@ function Photos() {
       <div className="flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
         {[tahoePic, paragladePic, cafePic, oreoPic, paintingsPic].map((image, imageIndex) => (
           <motion.div
+            key={imageIndex}
             variants={photoMotionVariant(imageIndex)}
           >
           <div
-            key={imageIndex}
             className={
               `relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl transition ease-in duration-300 hover:-translate-y-2 break-before-auto ${rotations[imageIndex % rotations.length]}`
             }
@@ -452,7 +446,7 @@ function Intro() {
               />
           </div>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I'm Abdu, a software engineer based out of San Francisco. I love research and hacking and I'm passtionate about education accessibility and freedom of the press. I enjoy reading, cooking, and building objectively cool stuff in my free time.
+            I&apos;m Abdu, a software engineer based out of San Francisco. I love research and hacking and I&apos;m passtionate about education accessibility and freedom of the press. I enjoy reading, cooking, and building objectively cool stuff in my free time.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -489,7 +483,7 @@ function WhatIDo() {
         <h1 className="text-4xl font-bold">What I Do</h1>
 
         <p className="mt-4 text-zinc-300">
-          I'm a Backend engineer with experience in Distributed Systems, Networking, Security, Infrastructure and Embedded Development.
+          I&apos;m a Backend engineer with experience in Distributed Systems, Networking, Security, Infrastructure and Embedded Development.
         </p>
       </div>
 
@@ -537,7 +531,7 @@ function WhatIDo() {
           <PiShieldCheckeredDuotone size={36} color='#db2777'/>
           <h2 className="mt-4 text-xl font-bold text-white">Security & Cryptography</h2>
           <div className="mt-1 text-sm text-gray-300">
-            I enjoy breaking things (legally!). I studied and TA'ed classes in Computer and Network Security, and Cryptography. I have also built a repertoire of skills in:
+            I enjoy breaking things (legally!). I studied and TA&apos;ed classes in Computer and Network Security, and Cryptography. I have also built a repertoire of skills in:
             <ul>
               <li className='ps-2'>- Systems Security</li>
               <li className='ps-2'>- Network Security</li>
