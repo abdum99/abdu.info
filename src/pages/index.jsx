@@ -3,11 +3,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
 
-import { PiNetworkDuotone, PiCpuDuotone, PiShieldCheckeredDuotone} from "react-icons/pi";
+import { motion } from 'framer-motion'
+
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
+
+import { PiCubeDuotone, PiNetworkDuotone, PiCpuDuotone, PiShieldCheckeredDuotone} from "react-icons/pi";
+
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -257,13 +261,58 @@ function Resume() {
   )
 }
 
+function AnimationsOnScroll() {
+  return (
+    <div className="flex justify-center">
+      <TEAnimation
+        animation="[slide-right_1s_ease-in-out]"
+        start="onScroll"
+        className="[&>svg]:w-11"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
+        </svg>
+      </TEAnimation>
+    </div>
+  );
+}
+
+const photoMotionVariant = (index) => {
+  return {
+    offscreen: {
+      y: (index % 2 == 0)? 10 : -20,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "ease-in",
+        duration: 1.5
+      }
+    }
+}};
+
 function Photos() {
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2'];
 
   return (
-    <div className="my-16 sm:mt-20">
-      <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
+    <div className="my-2 sm:mt-12">
+      <motion.div
+        className="card-container"
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+      <div className="flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
         {[tahoePic, paragladePic, cafePic, oreoPic, paintingsPic].map((image, imageIndex) => (
+          <motion.div
+            variants={photoMotionVariant(imageIndex)}
+          >
           <div
             key={imageIndex}
             className={
@@ -277,8 +326,10 @@ function Photos() {
               className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
+          </motion.div>
         ))}
       </div>
+      </motion.div>
     </div>
   )
 }
@@ -336,27 +387,27 @@ function Intro() {
 
 function WhatIDo() {
   return (
-    <div className='flex inset-0 justify-center my-12'>
-    <div class="bg-zinc-900 text-white w-full flex justify-center dark:bg-zinc-950 py-8">
-    <div class="max-w-screen-xl px-4 py-4 sm:px-6 sm:py-12 lg:px-8 lg:py-8">
-      <div class="mx-auto max-w-xl text-center">
-        <h1 className="text-2xl font-bold sm:text-4xl">What I Do</h1>
+    <div className='flex inset-0 justify-center my-8'>
+    <div className="bg-zinc-900 text-white w-full flex justify-center dark:bg-zinc-950 py-8">
+    <div className="max-w-screen-xl px-4 py-4 sm:px-6 sm:py-8 lg:px-8 lg:py-2">
+      <div className="mx-auto max-w-xl text-center">
+        <h1 className="text-4xl font-bold">What I Do</h1>
 
-        <p class="mt-4 text-zinc-300">
+        <p className="mt-4 text-zinc-300">
           I'm a Backend engineer with experience in Distributed Systems, Networking, Security, Infrastructure and Embedded Development.
         </p>
       </div>
 
       <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         <div
-          class="block rounded-xl border border-zinc-800/80 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+          className="block rounded-xl border border-zinc-800/80 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
         >
           <PiNetworkDuotone size={36} color='#db2777'/>
           <h2 className="mt-4 text-xl font-bold text-white">Systems</h2>
-          <p class="mt-1 text-sm text-gray-300">
+          <p className="mt-1 text-sm text-gray-300">
             I studied Distributed Systems, Networking and Kernel Development and I enjoy working on systems with multiple moving components. I also love reading books and research papers on the topic. 
           </p>
-          <div class="mt-1 text-sm text-gray-300">
+          <div className="mt-1 text-sm text-gray-300">
             Most notably I have worked on:
             <ul>
               <li className='ps-2'>- Operating System Kernels in Rust & C</li>
@@ -368,14 +419,14 @@ function WhatIDo() {
         </div>
 
         <div
-          class="block rounded-xl border border-zinc-800/80 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+          className="block rounded-xl border border-zinc-800/80 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
         >
           <PiCpuDuotone size={36} color='#db2777'/>
           <h2 className="mt-4 text-xl font-bold text-white">Embedded</h2>
-          <p class="mt-1 text-sm text-zinc-300">
+          <p className="mt-1 text-sm text-zinc-300">
             I love working close to the hardware. I have a lot of experience working with low-power micro-controllers and SBCs like Raspberry Pi, ESP and Teensy boards.
           </p>
-          <div class="mt-1 text-sm text-zinc-300">
+          <div className="mt-1 text-sm text-zinc-300">
             I have worked with/on:
             <ul>
               <li className='ps-2'>- RTOS</li>
@@ -386,11 +437,11 @@ function WhatIDo() {
         </div>
 
         <div
-          class="block rounded-xl border border-zinc-800/80 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+          className="block rounded-xl border border-zinc-800/80 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
         >
           <PiShieldCheckeredDuotone size={36} color='#db2777'/>
           <h2 className="mt-4 text-xl font-bold text-white">Security & Cryptography</h2>
-          <div class="mt-1 text-sm text-gray-300">
+          <div className="mt-1 text-sm text-gray-300">
             I enjoy breaking things (legally!). I studied and TA'ed classes in Computer and Network Security, and Cryptography. I have also built a repertoire of skills in:
             <ul>
               <li className='ps-2'>- Systems Security</li>
@@ -401,10 +452,10 @@ function WhatIDo() {
         </div>
       </div>
 
-      <div class="mt-12 text-center">
+      <div className="mt-12 text-center">
         <a
           href="#"
-          class="inline-block rounded bg-pink-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-pink-700 focus:outline-none focus:ring focus:ring-yellow-400"
+          className="inline-block rounded bg-pink-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-pink-700 focus:outline-none focus:ring focus:ring-yellow-400"
         >
           Contact Me
         </a>
@@ -415,6 +466,22 @@ function WhatIDo() {
   );
 }
 
+function SelectedProjects({ articles }) {
+  return (
+    <div id="selectedprojects" className=''>
+      <div className='flex gap-3 mb-4'>
+      <PiCubeDuotone color='#A1A1AA' size={32} className='mt-1'/>
+      <h1 className='text-4xl font-semibold mb-6 text-zinc-700'>Selected Projects</h1>
+      </div>
+      <div className="flex flex-col gap-16">
+        {articles.map((article) => (
+          <Article key={article.slug} article={article} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function Home({ articles }) {
   return (
     <>
@@ -422,6 +489,7 @@ export default function Home({ articles }) {
         <title>
           Abdu Mohamdy
         </title>
+        <link rel="icon" type="image/x-icon" href="@/public/favicon.ico" />
         <meta
           name="description"
           content="I'm Abdu, a software engineer based out of San Francisco. I love research and hacking and I'm passtionate about education accessibility and freedom of the press. I enjoy reading, cooking, and building objectively cool stuff in my free time"
@@ -430,13 +498,9 @@ export default function Home({ articles }) {
       <Intro />
       <WhatIDo />
       <Photos /> 
-      <Container className="mt-24 md:mt-28">
+      <Container className="mt-8 md:mt-16">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col gap-16">
-            {articles.map((article) => (
-              <Article key={article.slug} article={article} />
-            ))}
-          </div>
+          <SelectedProjects articles={articles}/>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Newsletter />
             <Resume />

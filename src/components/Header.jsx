@@ -71,7 +71,7 @@ function MoonIcon(props) {
 function MobileNavItem({ href, children }) {
   return (
     <li>
-      <Popover.Button as={Link} href={href} className="block py-2">
+      <Popover.Button as={Link} href={href} scroll={false} className="block py-2">
         {children}
       </Popover.Button>
     </li>
@@ -123,7 +123,7 @@ function MobileNavigation(props) {
                 <MobileNavItem href="/">Home</MobileNavItem>
                 <MobileNavItem href="/about">About</MobileNavItem>
                 <MobileNavItem href="/articles">Experience</MobileNavItem>
-                <MobileNavItem href="/projects">Projects</MobileNavItem>
+                <MobileNavItem href="/#selectedprojects">Projects</MobileNavItem>
                 <MobileNavItem href="/speaking">Open-Source</MobileNavItem>
                 <MobileNavItem href="/uses">Life</MobileNavItem>
                 <MobileNavItem href="/uses">Contact</MobileNavItem>
@@ -143,6 +143,7 @@ function NavItem({ href, children }) {
     <li>
       <Link
         href={href}
+        scroll={false}
         className={clsx(
           'relative block px-3 py-2 transition',
           isActive
@@ -166,7 +167,7 @@ function DesktopNavigation(props) {
         <NavItem href="/">Home</NavItem>
         <NavItem href="/about">About</NavItem>
         <NavItem href="/articles">Experience</NavItem>
-        <NavItem href="/projects">Projects</NavItem>
+        <NavItem href="/#selectedprojects">Projects</NavItem>
         <NavItem href="/speaking">Open-Source</NavItem>
         <NavItem href="/uses">Life</NavItem>
         <NavItem href="/uses">Contact</NavItem>
