@@ -325,7 +325,7 @@ function AnimationsOnScroll() {
 const photoMotionVariant = (index) => {
   return {
     offscreen: {
-      y: (index % 2 == 0)? 10 : -20,
+      y: (index % 2 == 0)? (8 + 10 * index) : (-12 - (4 * index)),
       opacity: 0,
     },
     onscreen: {
@@ -347,7 +347,7 @@ function Photos() {
         className="card-container"
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
       <div className="flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
         {[tahoePic, paragladePic, cafePic, oreoPic, paintingsPic].map((image, imageIndex) => (
