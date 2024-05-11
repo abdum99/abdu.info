@@ -10,7 +10,7 @@ import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 
-import { PiCubeDuotone, PiNetworkDuotone, PiCpuDuotone, PiShieldCheckeredDuotone} from "react-icons/pi";
+import { PiFileTextDuotone, PiCubeDuotone, PiNetworkDuotone, PiCpuDuotone, PiShieldCheckeredDuotone} from "react-icons/pi";
 
 import {
   GitHubIcon,
@@ -32,6 +32,7 @@ import tahoePic from '@/images/pics/tahoe_pic.jpg'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
+import { allProjects } from '@/lib/projects'
 import { ReactTyped } from 'react-typed'
 
 const avatarImage = igPic
@@ -291,9 +292,11 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
-        Download CV
-        <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
+      <Button href="/abdu_mohamdy_resume.pdf" target="_blank" variant="secondary" className="group mt-6 w-full">
+        <PiFileTextDuotone size={20} className='fill-zinc-400 group-hover:fill-zinc-500'/>
+        <p className='text-zinc-500 group-hover:text-zinc-600'>
+        Download Resume
+        </p>
       </Button>
     </div>
   )
@@ -507,15 +510,20 @@ function WhatIDo() {
 }
 
 function SelectedProjects({ articles }) {
+  const selectedProjects = [
+    allProjects['ruban'],
+    allProjects['osiris'],
+    allProjects['yugioh'],
+  ]
   return (
     <div id="selectedprojects" className=''>
-      <div className='flex gap-3 mb-4'>
+      <div className='flex gap-3 mb-2'>
       <PiCubeDuotone color='#A1A1AA' size={32} className='mt-1'/>
       <h1 className='text-4xl font-semibold mb-6 text-zinc-700'>Selected Projects</h1>
       </div>
-      <div className="flex flex-col gap-16">
-        {articles.map((article) => (
-          <ProjectSnippet key={article.slug} project={article} />
+      <div className="flex flex-col gap-12">
+        {selectedProjects.map((proj) => (
+          <ProjectSnippet key={proj.slug} project={proj} />
         ))}
       </div>
     </div>
