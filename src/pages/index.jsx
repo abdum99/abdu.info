@@ -39,6 +39,8 @@ import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { allProjects } from '@/lib/projects'
 import { ReactTyped } from 'react-typed'
+import { Contributions } from '@/components/Contributions'
+import { allContributions } from '@/lib/contributions'
 
 const avatarImage = igPic
 
@@ -168,7 +170,7 @@ function ProjectSnippet({ project }) {
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.3 }}
       variants={projectSnippetMotionVariant}
     >
     <Card as="projsnippet">
@@ -298,7 +300,7 @@ function Work() {
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.1 }}
+      viewport={{ once: true, amount: 0.3 }}
       variants={resumeMotionVariant}
     >
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
@@ -389,7 +391,7 @@ function Photos() {
         className="card-container"
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.4 }}
       >
       <div className="flex justify-center gap-5 overflow-x-scroll py-4 sm:gap-8">
         {[tahoePic, paragladePic, cafePic, oreoPic, paintingsPic].map((image, imageIndex) => (
@@ -432,13 +434,13 @@ function Intro() {
         </div>
         <div className="max-w-4xl basis-2/3 mt-8">
           <div className='mb-8'>
-            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+            <h1 className="text-5xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
               ABDU MOHAMDY
             </h1>
             <ReactTyped
               strings={["> Software Engineer"]}
               typeSpeed={40} 
-              className="text-2xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+              className="text-4xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl"
               />
           </div>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
@@ -476,7 +478,7 @@ function WhatIDo() {
     <div className="bg-zinc-900 text-white w-full flex justify-center dark:bg-zinc-950 py-8">
     <div className="max-w-screen-xl px-4 py-4 sm:px-6 sm:py-8 lg:px-8 lg:py-2">
       <div className="mx-auto max-w-xl text-center">
-        <h1 className="text-4xl font-bold">What I Do</h1>
+        <h1 className="text-5xl font-bold">What I Do</h1>
 
         <p className="mt-4 text-zinc-300">
           I&apos;m a Backend engineer with experience in Distributed Systems, Networking, Security, Infrastructure and Embedded Development.
@@ -551,7 +553,7 @@ function WhatIDo() {
   );
 }
 
-function SelectedProjects({ articles }) {
+function SelectedProjects() {
   const selectedProjects = [
     allProjects['ruban'],
     allProjects['osiris'],
@@ -560,10 +562,10 @@ function SelectedProjects({ articles }) {
   return (
     <div id="selectedprojects" className=''>
       <div className='flex gap-3 mb-2'>
-      <PiCubeDuotone color='#A1A1AA' size={32} className='mt-1'/>
-      <h1 className='text-4xl font-semibold mb-6 text-zinc-700'>Selected Projects</h1>
+      <PiCubeDuotone size={32} className='mt-1 fill-zinc-400'/>
+      <h1 className='text-4xl font-semibold mb-6 text-zinc-700 dark:text-zinc-200'>Selected Projects</h1>
       </div>
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-12 mb-20">
         {selectedProjects.map((proj) => (
           <ProjectSnippet key={proj.slug} project={proj} />
         ))}
@@ -572,7 +574,7 @@ function SelectedProjects({ articles }) {
   )
 }
 
-export default function Home({ articles }) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -590,7 +592,7 @@ export default function Home({ articles }) {
       <Photos /> 
       <Container className="mt-8 md:mt-16">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <SelectedProjects articles={articles}/>
+          <SelectedProjects />
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Work />
             <Button href="/abdu_mohamdy_resume.pdf" target="_blank" variant="secondary" className="group w-full bg-zinc-800 hover:bg-zinc-900">
@@ -602,6 +604,7 @@ export default function Home({ articles }) {
             <Newsletter />
           </div>
         </div>
+        {/* <Contributions ctrs={allContributions} className="mt-8 md:mt-16" /> */}
       </Container>
     </>
   )
