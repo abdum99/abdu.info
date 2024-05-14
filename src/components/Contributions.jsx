@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 function Contribution({ ctr }) {
     return (
-        <a href={ctr.link} target='_blank' className="group relative block h-64 max-w-72 sm:h-80 lg:h-96">
+        <a href={ctr.link} target='_blank' rel="noreferrer" className="group relative block h-64 max-w-72 sm:h-80 lg:h-96">
         <span className="absolute inset-0 border-2 border-dashed border-black rounded-2xl">
             <Image
                 src={ctr.pic}
@@ -43,11 +43,11 @@ export function Contributions({ ctrs = [], props }) {
     return (
         <div {...props} >
             <h1 className="text-4xl font-semibold mb-6 text-zinc-700 dark:text-zinc-20">
-                Projects I'm Proud to have been a part of 
+                Projects I&apos;m Proud to have been a part of 
             </h1>
             <div className="flex flex-initial justify-center px-12 gap-4">
             {Object.values(ctrs).map((ctr) => 
-                <Contribution ctr={ctr} />
+                <Contribution ctr={ctr} key={ctr.slug} />
             )}
             </div>
         </div>
