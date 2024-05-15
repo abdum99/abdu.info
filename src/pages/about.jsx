@@ -66,10 +66,7 @@ export default function About() {
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                I’ve loved making things for as long as I can remember, and
-                wrote my first program when I was 6 years old, just two weeks
-                after my mom brought home the brand new Macintosh LC 550 that I
-                taught myself to type on.
+                I grew up in a small village north of Cairo and only had three routers in my village. Three routers and a whole lot of switches and ethernet cables running between rooftops. My first &quot;debugging&quot; experience was figuring out why my internet wasn&quot; working. The anticlimactic reason was typically that one of the chickens my neighbors raised on their rooftops had bitten through a cable. 
               </p>
               <p>
                 The only thing I loved more than computers as a kid was space.
