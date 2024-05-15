@@ -305,7 +305,7 @@ function Work() {
           </li>
         ))}
       </ol>
-      <Link href="/experience" scroll={false} className='flex justify-center py-4 text-xs w-fill'>
+      <Link href="/experience" className='flex justify-center py-4 text-xs w-fill'>
         <span className="text-zinc-400 hover:text-zinc-500">
         View more..
         </span>
