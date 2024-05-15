@@ -579,7 +579,7 @@ export default function Home() {
             <Newsletter />
           </div>
         </div>
-        {/* <Contributions ctrs={allContributions} className="mt-8 md:mt-16" /> */}
+        <Contributions ctrs={allContributions} className="mt-8 md:mt-16" />
       </Container>
     </>
   )

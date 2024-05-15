@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { PiLinkBold } from 'react-icons/pi';
 
 function Contribution({ ctr }) {
     return (
@@ -32,7 +33,10 @@ function Contribution({ ctr }) {
                 {ctr.description}
             </p>
       
-            <p className="mt-8 font-bold">Read more</p>
+            <div className='mt-6 flex justify-center'>
+                <PiLinkBold className='mt-1 mx-2 fill-zinc-800 flex-none'/>
+                <p className="font-bold text-zinc-800">{ctr.domain}</p>
+            </div>
           </div>
         </div>
       </a>
