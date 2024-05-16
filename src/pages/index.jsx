@@ -39,6 +39,7 @@ import { allContributions } from '@/lib/contributions'
 import { allRoles } from '@/lib/roles'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import Chip from '@/components/Chip'
+import { fadeInLeftMotionVariant, fadeInTopMotionVariant } from '@/lib/motionVariants'
 
 const avatarImage = igPic
 
@@ -148,28 +149,13 @@ function Article({ article }) {
   )
 }
 
-const projectSnippetMotionVariant = {
-  offscreen: {
-    x: -10,
-    opacity: 0,
-  },
-  onscreen: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      type: "ease-in",
-      duration: 0.8
-    }
-  }
-};
-
 function ProjectSnippet({ project }) {
   return (
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.3 }}
-      variants={projectSnippetMotionVariant}
+      variants={fadeInLeftMotionVariant}
     >
     <Card>
       <Card.Title href={`/projects#${project.slug}`}>
@@ -250,27 +236,13 @@ function Newsletter() {
 
 function Work() {
   const roles = allRoles.slice(0, 4)
-  const workMotionVariant = {
-    offscreen: {
-      y: -40,
-      opacity: 0,
-    },
-    onscreen: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "ease-in",
-        duration: 1
-      }
-    }
-  };
 
   return (
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.3 }}
-      variants={workMotionVariant}
+      variants={fadeInTopMotionVariant}
     >
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -362,7 +334,7 @@ function Photos() {
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.4 }}
       >
-      <div className="flex justify-center gap-5 overflow-x-scroll py-4 sm:gap-8">
+      <div className="flex justify-center gap-5 overflow-auto py-4 sm:gap-8">
         {[tahoePic, paragladePic, cafePic, oreoPic, paintingsPic].map((image, imageIndex) => (
           <motion.div
             key={imageIndex}
@@ -529,17 +501,25 @@ function SelectedProjects() {
     allProjects['yugioh'],
   ]
   return (
-    <div id="selectedprojects" >
-      <header className='mb-12'>
+    <div
+      id="selectedprojects"
+    >
+      <motion.div
+        className='mb-12'
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true, amount: 0.8 }}
+        variants={fadeInTopMotionVariant}
+      >
         <div className='flex gap-3 mb-1'>
           <PiCubeDuotone size={36} className='mt-3 fill-zinc-400'/>
           <h1 className='text-5xl font-semibold text-zinc-700 dark:text-zinc-200'>Selected Projects</h1>
         </div>
 
-        <p className="text-base text-zinc-600 dark:text-zinc-400 px-2">
-          I’ve worked on tons of little projects over the years, these are some that I&apos;m most proud of.
+        <p className="text-base text-zinc-600 dark:text-zinc-300 px-2">
+          I’ve worked on a lot of personal projects over the years, these are some of the ones that I&apos;m most proud of.
         </p>
-      </header>
+      </motion.div>
       <div className="flex flex-col gap-12 mb-8">
         {selectedProjects.map((proj) => (
           <ProjectSnippet key={proj.slug} project={proj} />
@@ -579,7 +559,7 @@ export default function Home() {
             <Newsletter />
           </div>
         </div>
-        <Contributions ctrs={allContributions} className="mt-8 md:mt-16" />
+        <Contributions ctrs={allContributions} />
       </Container>
     </>
   )
