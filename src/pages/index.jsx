@@ -550,7 +550,7 @@ export default function Home() {
           <SelectedProjects />
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Work />
-            <Button href="/abdu_mohamdy_resume.pdf" target="_blank" variant="secondary" className="group w-full bg-zinc-800 hover:bg-zinc-900">
+            <Button href="/Abdu_Mohamdy_Resume.pdf" target="_blank" variant="secondary" className="group w-full bg-zinc-800 hover:bg-zinc-900">
               <PiFileTextDuotone size={20} className='fill-zinc-100 group-hover:fill-zinc-50'/>
               <p className='text-zinc-100 group-hover:text-zinc-50'>
               Download Resume
