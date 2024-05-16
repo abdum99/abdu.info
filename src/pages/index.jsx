@@ -37,6 +37,8 @@ import { ReactTyped } from 'react-typed'
 import { Contributions } from '@/components/Contributions'
 import { allContributions } from '@/lib/contributions'
 import { allRoles } from '@/lib/roles'
+import { SimpleLayout } from '@/components/SimpleLayout'
+import Chip from '@/components/Chip'
 
 const avatarImage = igPic
 
@@ -169,15 +171,19 @@ function ProjectSnippet({ project }) {
       viewport={{ once: true, amount: 0.3 }}
       variants={projectSnippetMotionVariant}
     >
-    <Card as="projsnippet">
+    <Card>
       <Card.Title href={`/projects#${project.slug}`}>
-        {project.title}
+        <div className='flex gap-2'>
+          <h1>{project.title}</h1>
+          <Chip status={project.status} />
+        </div>
       </Card.Title>
-      <Card.Eyebrow as="time" dateTime={project.date} decorate>
-        {formatDate(project.date)}
+      <Card.Eyebrow as="time" dateTime={project.date}>
+        {`${project.startDate} - ${project.endDate}`}
       </Card.Eyebrow>
       <Card.Description>{project.description}</Card.Description>
-      <Card.Cta>Read more..</Card.Cta>
+      <Card.Chips chips={project.skills} />
+      {/* <Card.Cta>Read more..</Card.Cta> */}
     </Card>
     </motion.div>
   )
@@ -523,12 +529,18 @@ function SelectedProjects() {
     allProjects['yugioh'],
   ]
   return (
-    <div id="selectedprojects" className=''>
-      <div className='flex gap-3 mb-2'>
-      <PiCubeDuotone size={32} className='mt-1 fill-zinc-400'/>
-      <h1 className='text-4xl font-semibold mb-6 text-zinc-700 dark:text-zinc-200'>Selected Projects</h1>
-      </div>
-      <div className="flex flex-col gap-12 mb-20">
+    <div id="selectedprojects" >
+      <header className='mb-12'>
+        <div className='flex gap-3 mb-1'>
+          <PiCubeDuotone size={36} className='mt-3 fill-zinc-400'/>
+          <h1 className='text-5xl font-semibold text-zinc-700 dark:text-zinc-200'>Selected Projects</h1>
+        </div>
+
+        <p className="text-base text-zinc-600 dark:text-zinc-400 px-2">
+          I’ve worked on tons of little projects over the years, these are some that I&apos;m most proud of.
+        </p>
+      </header>
+      <div className="flex flex-col gap-12 mb-8">
         {selectedProjects.map((proj) => (
           <ProjectSnippet key={proj.slug} project={proj} />
         ))}
@@ -554,7 +566,7 @@ export default function Home() {
       <WhatIDo />
       <Photos /> 
       <Container className="mt-8 md:mt-16">
-        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-10 lg:max-w-none lg:grid-cols-2">
           <SelectedProjects />
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Work />

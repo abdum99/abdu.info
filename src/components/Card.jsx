@@ -38,7 +38,7 @@ Card.Link = function CardLink({ children, ...props }) {
 
 Card.Title = function CardTitle({ as: Component = 'h2', href, children }) {
   return (
-    <Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+    <Component className="text-md font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
   )
@@ -56,7 +56,7 @@ Card.Cta = function CardCta({ children }) {
   return (
     <div
       aria-hidden="true"
-      className="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500"
+      className="relative z-10 mt-2 flex items-center text-sm font-medium text-teal-500"
     >
       {children}
       <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
@@ -75,7 +75,7 @@ Card.Eyebrow = function CardEyebrow({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500',
+        'relative z-10 flex items-center text-sm text-zinc-400 dark:text-zinc-500',
         decorate && 'pl-3.5'
       )}
       {...props}
@@ -90,5 +90,21 @@ Card.Eyebrow = function CardEyebrow({
       )}
       {children}
     </Component>
+  )
+}
+
+Card.Chips = function CardChips({
+  chips
+}) {
+  return (
+    <div className='flex gap-2 mt-2'>
+      {chips.map((chip) => (
+        <div
+        key={chip}
+        className="relative grid select-none items-center whitespace-nowrap rounded-full bg-gradient-to-tr from-zinc-900 to-zinc-700 px-2 text-xs text-zinc-100 tracking-tight dark:from-zinc-800 dark:to-zinc-700">
+          {chip}
+        </div>
+      ))}
+    </div>
   )
 }
