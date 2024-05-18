@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react'
 
+import Script from 'next/script';
+
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 
@@ -21,6 +23,18 @@ export default function App({ Component, pageProps, router }) {
 
   return (
     <>
+      {/* <!-- Google tag (gtag.js) --> */}
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-R58VVDWJFC"></Script>
+      <Script>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-R58VVDWJFC');
+        `}
+      </Script>
+
       <div className="fixed inset-0 flex justify-center sm:px-8">
         <div className="flex w-full max-w-7xl lg:px-8">
           <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-0" />
