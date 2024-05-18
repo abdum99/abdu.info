@@ -25,7 +25,7 @@ export default function App({ Component, pageProps, router }) {
     <>
       {/* <!-- Google tag (gtag.js) --> */}
       <Script async src="https://www.googletagmanager.com/gtag/js?id=G-R58VVDWJFC"></Script>
-      <Script>
+      <Script id='ganalytics'>
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
