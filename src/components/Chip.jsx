@@ -12,10 +12,9 @@ export default function Chip({
     props
 }) {
     const colors = colorMap[status]
-    console.log("colors:", colors)
     return (
         <div
-        className={`relative grid items-center px-2 text-xs rounded-full select-none whitespace-nowrap uppercase ${colorMap[status]}`}>
+        className={`relative grid items-center px-2 text-xs font-bold rounded-full select-none whitespace-nowrap uppercase ${colorMap[status]}`}>
         <span>{status}</span>
         </div>
     )

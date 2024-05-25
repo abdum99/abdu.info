@@ -74,7 +74,7 @@ export function Contributions({ ctrs = [], props }) {
               variants={fadeInTopMotionVariant}
             >
             <h1 className="text-5xl font-semibold text-zinc-700 dark:text-zinc-200 mb-2">
-              Projects I helped with
+              Other Projects I Worked on
             </h1>
             <p className="text-base text-zinc-600 dark:text-zinc-300 px-2">
               I love research and over the years I&apos;ve worked on a many projects including these

@@ -97,7 +97,7 @@ Card.Chips = function CardChips({
   chips
 }) {
   return (
-    <div className='flex gap-2 mt-2'>
+    <div className='flex gap-2 mt-2 w-full flex-wrap'>
       {chips.map((chip) => (
         <div
         key={chip}

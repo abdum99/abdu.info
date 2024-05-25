@@ -513,7 +513,7 @@ function SelectedProjects() {
       >
         <div className='flex gap-3 mb-1'>
           <PiCubeDuotone size={36} className='mt-3 fill-zinc-400'/>
-          <h1 className='text-5xl font-semibold text-zinc-700 dark:text-zinc-200'>Selected Projects</h1>
+          <h1 className='text-5xl font-semibold text-zinc-700 dark:text-zinc-200'>Personal Projects</h1>
         </div>
 
         <p className="text-base text-zinc-600 dark:text-zinc-300 px-2">

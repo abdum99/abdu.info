@@ -10,8 +10,10 @@ import {
   LinkedInIcon,
   TwitterIcon,
 } from '@/components/SocialIcons'
-const portraitImage =
-  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
+
+import czechiaPic from '@/images/pics/czechia_pic.jpg'
+import delahPic from '@/images/pics/delah_pic.jpg'
+
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
@@ -45,24 +47,31 @@ export default function About() {
         <title>About - Spencer Sharp</title>
         <meta
           name="description"
-          content="I’m Spencer Sharp. I live in New York City, where I design the future."
+          content="I’m Abdu."
         />
       </Head>
-      <Container className="mt-16 sm:mt-32">
+      <Container className="mt-8 sm:mt-16">
+        <div className="px-4 mb-12">
+          <Image
+            src={czechiaPic}
+            alt=""
+            className="aspect-[3/1] rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+          />
+        </div>
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
           <div className="lg:pl-20">
             <div className="max-w-xs px-2.5 lg:max-w-none">
-              <img
-                src={portraitImage}
+              <Image
+                src={delahPic}
                 alt=""
-                className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+                className="aspect-[2/3] rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
               />
             </div>
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m Spencer Sharp. I live in New York City, where I design the
-              future.
+              &quot;I&apos;m sort of a hippie pacifist in terms of general persona.&quot;
+              &quot;“To be sensual, I think, is to respect and rejoice in the force of life, of life itself, and to be present in all that one does, from the effort of loving to the breaking of bread.”&quot;
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
