@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
 
-import { motion } from 'framer-motion'
+import { motion, useInView, useMotionValueEvent, useScroll, useTransform } from 'framer-motion'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
@@ -40,6 +40,7 @@ import { allRoles } from '@/lib/roles'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import Chip from '@/components/Chip'
 import { fadeInLeftMotionVariant, fadeInTopMotionVariant } from '@/lib/motionVariants'
+import { useRef } from 'react'
 
 const avatarImage = igPic
 
@@ -293,20 +294,6 @@ function Work() {
   )
 }
 
-function AnimationsOnScroll() {
-  return (
-    <div className="flex justify-center">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-      >
-        <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
-      </svg>
-    </div>
-  );
-}
-
 const photoMotionVariant = (index) => {
   return {
     offscreen: {
@@ -323,22 +310,50 @@ const photoMotionVariant = (index) => {
     }
 }};
 
+const photoY = (index, opacity) => {
+  return 
+}
+
 function Photos() {
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2'];
+  const ref = useRef(null)
+
+  const { scrollYProgress } = useScroll({
+    container: ref,
+    axis: "y"
+  })
+
+  useMotionValueEvent(scrollYProgress, "change", (v) => 
+    console.log("v:", v)
+  )
+
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.15],
+    [0, 1]
+  )
+
+  const TranslationY = (index) => useTransform(
+    scrollYProgress,
+    [0, 0.1],
+    [(index % 2 == 0)? (8 + 40 * index) : (-12 - (40 * index)), 0]
+  )
 
   return (
-    <div className="my-2 sm:mt-12">
+    <div className="overflow-visible">
       <motion.div
-        className="card-container"
-        initial="offscreen"
-        whileInView="onscreen"
+        className="overflow-visible"
         viewport={{ once: true, amount: 0.4 }}
       >
-      <div className="flex justify-center gap-5 overflow-auto py-4 sm:gap-8">
+      <div className="flex justify-center gap-5 overflow-visible py-4 sm:gap-8">
         {[tahoePic, paragladePic, cafePic, oreoPic, paintingsPic].map((image, imageIndex) => (
           <motion.div
             key={imageIndex}
             variants={photoMotionVariant(imageIndex)}
+            style={{
+              opacity: opacity,
+              y: TranslationY(imageIndex),
+            }}
           >
           <div
             className={
@@ -362,60 +377,64 @@ function Photos() {
 
 function Intro() {
   return (
-    <Container className="my-20">
-      <div className='flex flex-row-reverse'>
-        <div className='flex-initial basis-1/3 min-w-80 m-6'>
-          <Image
-            src={avatarImage}
-            alt=""
-            className={clsx(
-              'aspect-square rounded-3xl bg-zinc-100 object-cover dark:bg-zinc-800 w-80'
-            )}
+    <div className="min-h-screen flex flex-col justify-center overflow-visible mt-12">
+      <div className='flex justify-center basis-1/3'>
+        <Image
+          src={avatarImage}
+          alt=""
+          className={clsx(
+            'aspect-square rounded-3xl bg-zinc-100 object-cover dark:bg-zinc-800 w-96'
+          )}
+        />
+      </div>
+      <div className='flex justify-center basis-1/3'>
+        <div className="max-w-4xl basis-2/3 mt-8">
+        <div className='mb-8'>
+          <h1 className="text-4xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl mb-4">
+            Hi, I&apos;m
+          </h1>
+          <h1 className="text-6xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl mb-4">
+            ABDU MOHAMDY
+          </h1>
+          <ReactTyped
+            strings={["> Software Engineer"]}
+            typeSpeed={40} 
+            className="text-4xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl"
+            />
+        </div>
+        <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+          I&apos;m based out of San Francisco. I love research and hacking and I&apos;m passtionate about education accessibility and freedom of the press. I enjoy reading, cooking, and building objectively cool stuff in my free time.
+        </p>
+        <div className="mt-6 mb-12 flex gap-6">
+          <SocialLink
+            href="https://linkedin.com/in/amohamdy99"
+            aria-label="LinkedIn"
+            icon={LinkedInIcon}
+            target="_blank"
+          />
+          <SocialLink
+            href="https://github.com/abdum99"
+            aria-label="GitHub"
+            icon={GitHubIcon}
+            target="_blank"
+          />
+          <SocialLink
+            href="https://hashnode.com/@amohamdy"
+            aria-label="Hashnode"
+            icon={HashnodeIcon}
+            target="_blank"
           />
         </div>
-        <div className="max-w-4xl basis-2/3 mt-8">
-          <div className='mb-8'>
-            <h1 className="text-5xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              ABDU MOHAMDY
-            </h1>
-            <ReactTyped
-              strings={["> Software Engineer"]}
-              typeSpeed={40} 
-              className="text-4xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl"
-              />
-          </div>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I&apos;m Abdu, a software engineer based out of San Francisco. I love research and hacking and I&apos;m passtionate about education accessibility and freedom of the press. I enjoy reading, cooking, and building objectively cool stuff in my free time.
-          </p>
-          <div className="mt-6 flex gap-6">
-            <SocialLink
-              href="https://linkedin.com/in/amohamdy99"
-              aria-label="LinkedIn"
-              icon={LinkedInIcon}
-              target="_blank"
-            />
-            <SocialLink
-              href="https://github.com/abdum99"
-              aria-label="GitHub"
-              icon={GitHubIcon}
-              target="_blank"
-            />
-            <SocialLink
-              href="https://hashnode.com/@amohamdy"
-              aria-label="Hashnode"
-              icon={HashnodeIcon}
-              target="_blank"
-            />
-          </div>
         </div>
       </div>
-    </Container>
+      <Photos /> 
+      </div>
   );
 }
 
 function WhatIDo() {
   return (
-    <div className='flex inset-0 justify-center my-8'>
+    <div className='flex inset-0 justify-center'>
     <div className="bg-zinc-900 text-white w-full flex justify-center dark:bg-zinc-950 py-8">
     <div className="max-w-screen-xl px-4 py-4 sm:px-6 sm:py-8 lg:px-8 lg:py-2">
       <div className="mx-auto max-w-xl text-center">
@@ -544,7 +563,6 @@ export default function Home() {
       </Head>
       <Intro />
       <WhatIDo />
-      <Photos /> 
       <Container className="mt-8 md:mt-16">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-10 lg:max-w-none lg:grid-cols-2">
           <SelectedProjects />
