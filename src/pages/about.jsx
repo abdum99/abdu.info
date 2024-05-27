@@ -44,20 +44,13 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About - Spencer Sharp</title>
+        <title>About - Abdu Mohamdy</title>
         <meta
           name="description"
           content="I’m Abdu."
         />
       </Head>
-      <Container className="mt-8 sm:mt-16">
-        <div className="px-4 mb-12">
-          <Image
-            src={czechiaPic}
-            alt=""
-            className="aspect-[3/1] rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-          />
-        </div>
+      <Container className="mt-48">
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
           <div className="lg:pl-20">
             <div className="max-w-xs px-2.5 lg:max-w-none">
@@ -71,31 +64,16 @@ export default function About() {
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
               &quot;I&apos;m sort of a hippie pacifist in terms of general persona.&quot;
-              &quot;“To be sensual, I think, is to respect and rejoice in the force of life, of life itself, and to be present in all that one does, from the effort of loving to the breaking of bread.”&quot;
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
                 I grew up in a small village north of Cairo and only had three routers in my village. Three routers and a whole lot of switches and ethernet cables running between rooftops. My first &quot;debugging&quot; experience was figuring out why my internet wasn&quot; working. The anticlimactic reason was typically that one of the chickens my neighbors raised on their rooftops had bitten through a cable. 
               </p>
               <p>
-                The only thing I loved more than computers as a kid was space.
-                When I was 8, I climbed the 40-foot oak tree at the back of our
-                yard while wearing my older sister’s motorcycle helmet, counted
-                down from three, and jumped — hoping the tree was tall enough
-                that with just a bit of momentum I’d be able to get to orbit.
+                More stuff here
               </p>
               <p>
-                I spent the next few summers indoors working on a rocket design,
-                while I recovered from the multiple surgeries it took to fix my
-                badly broken legs. It took nine iterations, but when I was 15 I
-                sent my dad’s Blackberry into orbit and was able to transmit a
-                photo back down to our family computer from space.
-              </p>
-              <p>
-                Today, I’m the founder of Planetaria, where we’re working on
-                civilian space suits and manned shuttle kits you can assemble at
-                home so that the next generation of kids really <em>can</em>{' '}
-                make it to orbit — from the comfort of their own backyards.
+                words words words
               </p>
             </div>
           </div>
@@ -114,14 +92,21 @@ export default function About() {
                 Follow on LinkedIn
               </SocialLink>
               <SocialLink
-                href="mailto:spencer@planetaria.tech"
+                href="mailto:a.mohamdy99@gmail.com"
                 icon={MailIcon}
                 className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
               >
-                spencer@planetaria.tech
+                abdu @ email
               </SocialLink>
             </ul>
           </div>
+        </div>
+        <div className="px-4 mt-16">
+          <Image
+            src={czechiaPic}
+            alt=""
+            className="aspect-[3/1] rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+          />
         </div>
       </Container>
     </>
