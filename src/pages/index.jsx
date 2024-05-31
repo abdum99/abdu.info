@@ -17,11 +17,6 @@ import {
   HashnodeIcon
 } from '@/components/SocialIcons'
 
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
-
 import igPic from '@/images/pics/ig_pic.jpg'
 import cafePic from '@/images/pics/cafe_pic.jpg'
 import paragladePic from '@/images/pics/paraglade_pic.jpg'
@@ -41,6 +36,7 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import Chip from '@/components/Chip'
 import { fadeInLeftMotionVariant, fadeInTopMotionVariant } from '@/lib/motionVariants'
 import { useRef } from 'react'
+import ContactMe from '@/components/ContactMe'
 
 const avatarImage = igPic
 
@@ -323,10 +319,6 @@ function Photos() {
     axis: "y"
   })
 
-  useMotionValueEvent(scrollYProgress, "change", (v) => 
-    console.log("v:", v)
-  )
-
   const opacity = useTransform(
     scrollYProgress,
     [0, 0.15],
@@ -500,12 +492,12 @@ function WhatIDo() {
       </div>
 
       <div className="mt-12 text-center">
-        <a
-          href="#"
+        <Link
+          href="/#ContactMe"
           className="inline-block rounded bg-pink-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-pink-700 focus:outline-none focus:ring focus:ring-yellow-400"
         >
           Contact Me
-        </a>
+        </Link>
       </div>
     </div>
   </div>
@@ -578,6 +570,7 @@ export default function Home() {
           </div>
         </div>
         <Contributions ctrs={allContributions} />
+        <ContactMe />
       </Container>
     </>
   )
