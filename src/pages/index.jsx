@@ -388,9 +388,18 @@ function Intro() {
           <h1 className="text-6xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl mb-4">
             ABDU MOHAMDY
           </h1>
+          <span
+            className="text-4xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl"
+          >
+            &gt;&nbsp;
+          </span>
           <ReactTyped
-            strings={["> Software Engineer"]}
+            strings={["Software Engineer", "Tech Enthusiast", "Building Stuff", "Breaking Things..."]}
             typeSpeed={40} 
+            backSpeed={30}
+            backDelay={600}
+            loop
+            smartBackspace={false}
             className="text-4xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl"
             />
         </div>
@@ -494,6 +503,7 @@ function WhatIDo() {
       <div className="mt-12 text-center">
         <Link
           href="/#ContactMe"
+          scroll={false}
           className="inline-block rounded bg-pink-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-pink-700 focus:outline-none focus:ring focus:ring-yellow-400"
         >
           Contact Me

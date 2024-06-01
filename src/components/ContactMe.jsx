@@ -26,8 +26,9 @@ export default function ContactMe( {prop} ) {
         })
     }
     return (
-            <section className=" text-zinc-700 dark:text-zinc-100 mt-40" id="ContactMe">
-            <div className="py-8 px-12 mx-auto max-w-screen-md border rounded-2xl shadow-inner">
+            <section className="flex justify-center gap-0 text-zinc-700 dark:text-zinc-100 mt-40" id="ContactMe">
+            <div className="grid grid-cols-1">
+            <div className="py-8 px-12 mx-auto max-w-2xl border rounded-2xl shadow-inner overflow-clip">
                 <h2 className="mb-4 text-5xl tracking-tight font-extrabold text-center">Get In Touch</h2>
                 <p className="mb-8 font-light text-center text-zinc-500 dark:text-zinc-400 sm:text-xl">Have ideas, opportunities, or just want to chat? Let&apos;s talk.</p>
                 { submitted?
@@ -66,6 +67,7 @@ export default function ContactMe( {prop} ) {
                         </Button>
                 </form>
                 }
+            </div>
             </div>
             </section>
     )

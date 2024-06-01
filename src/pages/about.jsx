@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
 
+import warsawFencePic from "@/images/pics/warsaw_fence_pic.jpg"
+
 import { Container } from '@/components/Container'
 import {
   GitHubIcon,
@@ -52,15 +54,17 @@ export default function About() {
       </Head>
       <Container className="mt-48">
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-          <div className="lg:pl-20">
-            <div className="max-w-xs px-2.5 lg:max-w-none">
-              <Image
-                src={delahPic}
-                alt=""
-                className="aspect-[2/3] rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-              />
+            <div className="p-6 pb-28 w-80 mb-10 lg:max-w-lg -rotate-12 shadow-2xl bg-gradient-to-t from-gray-100 to-white relative -top-16">
+                <div
+                    className="shadow-inner"
+                >
+                <Image
+                    src={warsawFencePic}
+                    className="w-"
+                />
+                <p className='absolute bottom-4 font-mono text-blue-900 font-light tracking-tight'>Warsaw, Poland</p>
+                </div>
             </div>
-          </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
               &quot;I&apos;m sort of a hippie pacifist in terms of general persona.&quot;
@@ -99,6 +103,16 @@ export default function About() {
                 abdu @ email
               </SocialLink>
             </ul>
+          </div>
+
+          <div className="lg:pl-20">
+            <div className="max-w-xs px-2.5 lg:max-w-none">
+              <Image
+                src={delahPic}
+                alt=""
+                className="aspect-[2/3] rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+              />
+            </div>
           </div>
         </div>
         <div className="px-4 mt-16">
