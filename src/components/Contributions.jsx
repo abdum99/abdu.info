@@ -73,7 +73,7 @@ export function Contributions({ ctrs = [], props }) {
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeInTopMotionVariant}
             >
-            <h1 className="text-5xl font-semibold text-zinc-700 dark:text-zinc-200 mb-2">
+            <h1 className="text-5xl font-semibold text-zinc-800 dark:text-zinc-200 mb-2">
               Other Projects I Worked on
             </h1>
             <p className="text-base text-zinc-600 dark:text-zinc-300 px-2">
