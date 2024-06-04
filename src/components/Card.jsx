@@ -101,7 +101,7 @@ Card.Chips = function CardChips({
       {chips.map((chip) => (
         <div
         key={chip}
-        className="relative grid select-none items-center whitespace-nowrap rounded-full bg-gradient-to-tr from-zinc-900 to-zinc-700 px-2 text-xs text-zinc-100 tracking-tight dark:from-zinc-800 dark:to-zinc-700">
+        className="relative grid select-none items-center whitespace-nowrap rounded-full bg-zinc-800 px-2 text-xs text-zinc-100 tracking-tight dark:from-zinc-800 dark:to-zinc-700">
           {chip}
         </div>
       ))}
