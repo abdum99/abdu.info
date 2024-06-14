@@ -155,20 +155,20 @@ function ProjectSnippet({ project }) {
       viewport={{ once: true, amount: 0.3 }}
       variants={fadeInLeftMotionVariant}
     >
-    <Card>
-      <Card.Title href={`/projects#${project.slug}`}>
-        <div className='flex gap-2'>
-          <h1>{project.title}</h1>
-          <Chip status={project.status} />
-        </div>
-      </Card.Title>
-      <Card.Eyebrow as="time" dateTime={project.date}>
-        {`${project.startDate} - ${project.endDate}`}
-      </Card.Eyebrow>
-      <Card.Description>{project.description}</Card.Description>
-      <Card.Chips chips={project.skills} />
-      {/* <Card.Cta>Read more..</Card.Cta> */}
-    </Card>
+      <Card>
+        <Card.Title href={`/projects#${project.slug}`}>
+          <div className='flex gap-2'>
+            <h1>{project.title}</h1>
+            <Chip status={project.status} />
+          </div>
+        </Card.Title>
+        <Card.Eyebrow as="time" dateTime={project.date}>
+          {`${project.startDate} - ${project.endDate}`}
+        </Card.Eyebrow>
+        <Card.Description>{project.description}</Card.Description>
+        <Card.Chips chips={project.skills} />
+        {/* <Card.Cta>Read more..</Card.Cta> */}
+      </Card>
     </motion.div>
   )
 }
@@ -183,9 +183,9 @@ function SocialLink({ icon: Icon, ...props }) {
 
 const DownloadResumeButton = () => (
   <Button href="/Abdu_Mohamdy_Resume.pdf" target="_blank" variant="primary" className="group w-full  bg-zinc-800 hover:bg-zinc-900 dark:bg-zinc-700 dark:hover:bg-zinc-800">
-    <PiFileTextDuotone size={20} className='fill-zinc-100'/>
+    <PiFileTextDuotone size={20} className='fill-zinc-100' />
     <p className='text-zinc-100'>
-    Download Resume
+      Download Resume
     </p>
   </Button>
 );
@@ -213,30 +213,30 @@ function Newsletter() {
       viewport={{ once: true, amount: 0.3 }}
       variants={newsletterMotionVariant}
     >
-    <form
-      action="/thank-you"
-      className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
-    >
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <MailIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Stay up to date</span>
-      </h2>
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Get notified when I publish something new, and unsubscribe at any time.
-      </p>
-      <div className="mt-6 flex">
-        <input
-          type="email"
-          placeholder="Email address"
-          aria-label="Email address"
-          required
-          className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
-        />
-        <Button type="submit" className="ml-4 flex-none bg-zinc-800 hover:bg-zinc-900 dark:bg-zinc-700 dark:hover:bg-zinc-800">
-          Join
-        </Button>
-      </div>
-    </form>
+      <form
+        action="/thank-you"
+        className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
+      >
+        <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+          <MailIcon className="h-6 w-6 flex-none" />
+          <span className="ml-3">Stay up to date</span>
+        </h2>
+        <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+          Get notified when I publish something new, and unsubscribe at any time.
+        </p>
+        <div className="mt-6 flex">
+          <input
+            type="email"
+            placeholder="Email address"
+            aria-label="Email address"
+            required
+            className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
+          />
+          <Button type="submit" className="ml-4 flex-none bg-zinc-800 hover:bg-zinc-900 dark:bg-zinc-700 dark:hover:bg-zinc-800">
+            Join
+          </Button>
+        </div>
+      </form>
     </motion.div>
   )
 }
@@ -251,55 +251,54 @@ function Work() {
       viewport={{ once: true, amount: 0.3 }}
       variants={fadeInTopMotionVariant}
     >
-    <div className="rounded-2xl border border-zinc-100 pt-6 px-3 dark:border-zinc-700/40">
-      <div className='px-2'>
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Work</span>
-      </h2>
+      <div className="rounded-2xl border border-zinc-100 pt-6 px-3 dark:border-zinc-700/40">
+        <div className='px-2'>
+          <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+            <BriefcaseIcon className="h-6 w-6 flex-none" />
+            <span className="ml-3">Work</span>
+          </h2>
+        </div>
+        <ol className="mt-3 space-y-0.5">
+          {roles.map((role, roleIndex) => (
+            <li key={roleIndex} >
+              <Link href={`/experience#${role.slug}`} className="flex gap-3 py-4 px-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800">
+                <div className="relative mt-1 p-0.5 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                  <Image src={role.logo} alt="" className="w-20 rounded-full" unoptimized />
+                </div>
+                <dl className="flex flex-auto flex-wrap gap-x-2">
+                  <dt className="sr-only">Company</dt>
+                  <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                    {role.company}
+                  </dd>
+                  <dt className="sr-only">Role</dt>
+                  <dd className="text-xs text-zinc-500 dark:text-zinc-400">
+                    {role.title}
+                  </dd>
+                  <dt className="sr-only">Date</dt>
+                  <dd
+                    className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+                    aria-label={`${role.start.label ?? role.start} until ${role.end.label ?? role.end
+                      }`}
+                  >
+                    <time dateTime={role.start.dateTime ?? role.start}>
+                      {role.start.label ?? role.start}
+                    </time>{' '}
+                    <span aria-hidden="true">—</span>{' '}
+                    <time dateTime={role.end.dateTime ?? role.end}>
+                      {role.end.label ?? role.end}
+                    </time>
+                  </dd>
+                </dl>
+              </Link>
+            </li>
+          ))}
+        </ol>
+        <Link href="/experience" className='flex justify-center py-4 text-xs w-fill'>
+          <span className="text-zinc-400 hover:text-zinc-500">
+            View more..
+          </span>
+        </Link>
       </div>
-      <ol className="mt-3 space-y-0.5">
-        {roles.map((role, roleIndex) => (
-          <li key={roleIndex} >
-            <Link href={`/experience#${role.slug}`} className="flex gap-3 py-4 px-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800">
-            <div className="relative mt-1 p-0.5 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image src={role.logo} alt="" className="w-20 rounded-full" unoptimized />
-            </div>
-            <dl className="flex flex-auto flex-wrap gap-x-2">
-              <dt className="sr-only">Company</dt>
-              <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                {role.company}
-              </dd>
-              <dt className="sr-only">Role</dt>
-              <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-                {role.title}
-              </dd>
-              <dt className="sr-only">Date</dt>
-              <dd
-                className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                aria-label={`${role.start.label ?? role.start} until ${
-                  role.end.label ?? role.end
-                }`}
-              >
-                <time dateTime={role.start.dateTime ?? role.start}>
-                  {role.start.label ?? role.start}
-                </time>{' '}
-                <span aria-hidden="true">—</span>{' '}
-                <time dateTime={role.end.dateTime ?? role.end}>
-                  {role.end.label ?? role.end}
-                </time>
-              </dd>
-            </dl>
-            </Link>
-          </li>
-        ))}
-      </ol>
-      <Link href="/experience" className='flex justify-center py-4 text-xs w-fill'>
-        <span className="text-zinc-400 hover:text-zinc-500">
-        View more..
-        </span>
-      </Link>
-    </div>
     </motion.div>
   )
 }
@@ -307,7 +306,7 @@ function Work() {
 const photoMotionVariant = (index) => {
   return {
     offscreen: {
-      y: (index % 2 == 0)? (8 + 10 * index) : (-12 - (4 * index)),
+      y: (index % 2 == 0) ? (8 + 10 * index) : (-12 - (4 * index)),
       opacity: 0,
     },
     onscreen: {
@@ -318,10 +317,11 @@ const photoMotionVariant = (index) => {
         duration: 1.5
       }
     }
-}};
+  }
+};
 
 const photoY = (index, opacity) => {
-  return 
+  return
 }
 
 function Photos() {
@@ -342,40 +342,40 @@ function Photos() {
   const TranslationY = (index) => useTransform(
     scrollYProgress,
     [0, 0.1],
-    [(index % 2 == 0)? (8 + 40 * index) : (-12 - (40 * index)), 0]
+    [(index % 2 == 0) ? (8 + 40 * index) : (-12 - (40 * index)), 0]
   )
 
   return (
-    <div className="overflow-visible mb-24">
+    <div className="mb-24 max-w-full">
       <motion.div
-        className="overflow-visible"
+        className="overflow-x-hidden py-[250px] -my-[250px]"
         viewport={{ once: true, amount: 0.4 }}
       >
-      <div className="flex justify-center gap-5 overflow-visible py-4 sm:gap-8">
-        {[tahoePic, paragladePic, cafePic, oreoPic, paintingsPic].map((image, imageIndex) => (
-          <motion.div
-            key={imageIndex}
-            variants={photoMotionVariant(imageIndex)}
-            style={{
-              opacity: opacity,
-              y: TranslationY(imageIndex),
-            }}
-          >
-          <div
-            className={
-              `relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl transition ease-in duration-300 hover:-translate-y-2 break-before-auto ${rotations[imageIndex % rotations.length]}`
-            }
-          >
-            <Image
-              src={image}
-              alt=""
-              sizes="(min-width: 640px) 18rem, 11rem"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-          </motion.div>
-        ))}
-      </div>
+        <div className="flex justify-center gap-5 py-4 sm:gap-8">
+          {[tahoePic, paragladePic, cafePic, oreoPic, paintingsPic].map((image, imageIndex) => (
+            <motion.div
+              key={imageIndex}
+              variants={photoMotionVariant(imageIndex)}
+              style={{
+                opacity: opacity,
+                y: TranslationY(imageIndex),
+              }}
+            >
+              <div
+                className={
+                  `relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl transition ease-in duration-300 hover:-translate-y-2 break-before-auto ${rotations[imageIndex % rotations.length]}`
+                }
+              >
+                <Image
+                  src={image}
+                  alt=""
+                  sizes="(min-width: 640px) 18rem, 11rem"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
     </div>
   )
@@ -395,55 +395,55 @@ function Intro() {
       </div>
       <div className='flex justify-center basis-1/3'>
         <div className="max-w-4xl basis-2/3 mt-8">
-        <div className='mb-8'>
-          <h1 className="text-4xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl mb-4">
-            Hi, I&apos;m
-          </h1>
-          <h1 className="text-6xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl mb-4">
-            ABDU MOHAMDY
-          </h1>
-          <span
-            className="text-4xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl"
-          >
-            &gt;&nbsp;
-          </span>
-          <ReactTyped
-            strings={["Software Engineer", "Tech Enthusiast", "Building Stuff", "Breaking Things..."]}
-            typeSpeed={40} 
-            backSpeed={30}
-            backDelay={600}
-            loop
-            smartBackspace={false}
-            className="text-4xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl"
+          <div className='mb-8'>
+            <h1 className="text-4xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl mb-4">
+              Hi, I&apos;m
+            </h1>
+            <h1 className="text-6xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl mb-4">
+              ABDU MOHAMDY
+            </h1>
+            <span
+              className="text-4xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl"
+            >
+              &gt;&nbsp;
+            </span>
+            <ReactTyped
+              strings={["Software Engineer", "Tech Enthusiast", "Building Stuff", "Breaking Things..."]}
+              typeSpeed={40}
+              backSpeed={30}
+              backDelay={600}
+              loop
+              smartBackspace={false}
+              className="text-4xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl"
             />
-        </div>
-        <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-          I&apos;m based out of San Francisco. I love research and hacking and I&apos;m passtionate about education accessibility and freedom of the press. I enjoy reading, cooking, and building objectively cool stuff in my free time.
-        </p>
-        <div className="mt-6 mb-12 flex gap-6">
-          <SocialLink
-            href="https://linkedin.com/in/amohamdy99"
-            aria-label="LinkedIn"
-            icon={LinkedInIcon}
-            target="_blank"
-          />
-          <SocialLink
-            href="https://github.com/abdum99"
-            aria-label="GitHub"
-            icon={GitHubIcon}
-            target="_blank"
-          />
-          <SocialLink
-            href="https://hashnode.com/@amohamdy"
-            aria-label="Hashnode"
-            icon={HashnodeIcon}
-            target="_blank"
-          />
-        </div>
+          </div>
+          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+            I&apos;m based out of San Francisco. I love research and hacking and I&apos;m passtionate about education accessibility and freedom of the press. I enjoy reading, cooking, and building objectively cool stuff in my free time.
+          </p>
+          <div className="mt-6 mb-12 flex gap-6">
+            <SocialLink
+              href="https://linkedin.com/in/amohamdy99"
+              aria-label="LinkedIn"
+              icon={LinkedInIcon}
+              target="_blank"
+            />
+            <SocialLink
+              href="https://github.com/abdum99"
+              aria-label="GitHub"
+              icon={GitHubIcon}
+              target="_blank"
+            />
+            <SocialLink
+              href="https://hashnode.com/@amohamdy"
+              aria-label="Hashnode"
+              icon={HashnodeIcon}
+              target="_blank"
+            />
+          </div>
         </div>
       </div>
-      <Photos /> 
-      </div>
+      <Photos />
+    </div>
   );
 }
 
@@ -465,7 +465,7 @@ function SelectedProjects() {
         variants={fadeInTopMotionVariant}
       >
         <div className='flex gap-3 mb-1'>
-          <PiCubeDuotone size={36} className='mt-3 fill-zinc-400'/>
+          <PiCubeDuotone size={36} className='mt-3 fill-zinc-400' />
           <h1 className='text-5xl font-semibold text-zinc-800 dark:text-zinc-200'>Personal Projects</h1>
         </div>
 
