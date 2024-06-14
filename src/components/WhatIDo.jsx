@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { PiNetworkDuotone, PiCpuDuotone, PiShieldCheckeredDuotone, PiDatabaseDuotone } from "react-icons/pi";
+import { Container } from './Container';
 
 const Systems = () => (
   <div
@@ -82,35 +83,37 @@ const Security = () => (
 
 export default function WhatIDo() {
   return (
-    <div className='flex inset-0 justify-center'>
-      <div className="bg-zinc-900 text-white w-full flex justify-evenly dark:bg-zinc-950 py-8 shadow-xl shadow-pink-300/50 dark:shadow-pink-900/5">
-        <div className=" px-4 py-4 sm:px-6 sm:py-8 lg:px-8 lg:py-2">
-          <div className="mx-auto max-w-xl text-center">
-            <h1 className="text-5xl font-bold">What I Do</h1>
+    <div className="flex justify-center bg-zinc-900 text-white flex justify-evenly dark:bg-zinc-950">
+      <div className='max-w-7xl px-8 lg:px-16 xl:px-8'>
+        <div className='w-full inset-0 py-8'>
+          <div className="px-4 py-4 sm:px-6 sm:py-8 lg:px-8 lg:py-2">
+            <div className="mx-auto max-w-xl text-center">
+              <h1 className="text-5xl font-bold">What I Do</h1>
 
-            <p className="mt-4 text-zinc-300">
-              I&apos;m a Backend engineer with experience in Distributed Systems, Networking, Security, Infrastructure and Embedded Development.
-            </p>
-          </div>
+              <p className="mt-4 text-zinc-300">
+                I&apos;m a Backend engineer with experience in Distributed Systems, Networking, Security, Infrastructure and Embedded Development.
+              </p>
+            </div>
 
-          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
-            <Systems />
-            <Backend />
-            <Security />
-            <Embedded />
-          </div>
+            <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
+              <Systems />
+              <Backend />
+              <Security />
+              <Embedded />
+            </div>
 
-          <div className="mt-12 text-center">
-            <Link
-              href="/#ContactMe"
-              scroll={false}
-              className="inline-block rounded bg-pink-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-pink-700 focus:outline-none focus:ring focus:ring-yellow-400"
-            >
-              Contact Me
-            </Link>
+            <div className="mt-12 text-center">
+              <Link
+                href="/#ContactMe"
+                scroll={false}
+                className="inline-block rounded bg-pink-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-pink-700 focus:outline-none focus:ring focus:ring-yellow-400"
+              >
+                Contact Me
+              </Link>
+            </div>
           </div>
-        </div>
-      </div>
+        </div >
+      </div >
     </div>
   );
 }
