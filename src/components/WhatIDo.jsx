@@ -1,84 +1,136 @@
 import Link from 'next/link'
 import { PiNetworkDuotone, PiCpuDuotone, PiShieldCheckeredDuotone, PiDatabaseDuotone } from "react-icons/pi";
 import { Container } from './Container';
+import GlareHover from './GlareHover';
 
 const Systems = () => (
-  <div
-    className="block rounded-xl border border-zinc-800/80 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+  <GlareHover
+    width="100%"
+    height="auto"
+    background="transparent"
+    borderRadius="12px"
+    borderColor="#374151"
+    glareColor="#ffffff"
+    glareOpacity={0.05}
+    glareAngle={-45}
+    glareSize={250}
+    transitionDuration={650}
+    playOnce={false}
+    className="border border-zinc-800/80 shadow-xl hover:border-pink-500/10 hover:shadow-pink-500/10"
   >
-    <PiNetworkDuotone size={36} color='#db2777' />
-    <h2 className="mt-4 text-xl font-bold text-white">Systems</h2>
-    <p className="mt-1 text-sm text-gray-300">
-      I studied Distributed Systems, Networking and Kernel Development and I enjoy working on systems with multiple moving components. I also love reading books and research papers on the topic.
-    </p>
-    <div className="mt-1 text-sm text-gray-300">
-      Most notably I have worked on:
-      <ul>
-        <li className='ps-2'>- Operating System Kernels in Rust & C</li>
-        <li className='ps-2'>- SASE & ZTA Networks</li>
-        <li className='ps-2'>- MPLS </li>
-        <li className='ps-2'>- Distristful Distributed Systems </li>
-      </ul>
+    <div className="p-8">
+      <PiNetworkDuotone size={36} color='#db2777' />
+      <h2 className="mt-4 text-xl font-bold text-white">Systems</h2>
+      <p className="mt-1 text-sm text-gray-300">
+        I studied Distributed Systems, Networking and Kernel Development and I enjoy working on systems with multiple moving components. I also love reading books and research papers on the topic.
+      </p>
+      <div className="mt-1 text-sm text-gray-300">
+        Most notably I have worked on:
+        <ul>
+          <li className='ps-2'>- Operating System Kernels in Rust & C</li>
+          <li className='ps-2'>- SASE & ZTA Networks</li>
+          <li className='ps-2'>- MPLS </li>
+          <li className='ps-2'>- Distristful Distributed Systems </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </GlareHover>
 );
 
 const Backend = () => (
-  <div
-    className="block rounded-xl border border-zinc-800/80 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+  <GlareHover
+    width="100%"
+    height="auto"
+    background="transparent"
+    borderRadius="12px"
+    borderColor="#374151"
+    glareColor="#ffffff"
+    glareOpacity={0.05}
+    glareAngle={-45}
+    glareSize={200}
+    transitionDuration={650}
+    playOnce={false}
+    className="border border-zinc-800/80 shadow-xl hover:border-pink-500/10 hover:shadow-pink-500/10"
   >
-    <PiDatabaseDuotone size={36} color='#db2777' />
-    <h2 className="mt-4 text-xl font-bold text-white">Backend</h2>
-    <div className="mt-1 text-sm text-gray-300">
-      I worked on many backend systems and have experience designing and scaling backend architecture especially microservice architectures. Some
-      <ul>
-        <li className='ps-2'>- Authentication (e.g. JWT, X.509 Certificates)</li>
-        <li className='ps-2'>- Authorization (e.g. IAM, Least Privilege)</li>
-        <li className='ps-2'>- Databases (SQL & NoSQL)</li>
-        <li className='ps-2'>- API (incl. gRPC, REST)</li>
-        <li className='ps-2'>- Deployment (Docker, Kubernetes, Terraform)</li>
-        <li className='ps-2'>- Cloud (AWS and GCP)</li>
-      </ul>
+    <div className="p-8">
+      <PiDatabaseDuotone size={36} color='#db2777' />
+      <h2 className="mt-4 text-xl font-bold text-white">Backend</h2>
+      <div className="mt-1 text-sm text-gray-300">
+        I worked on many backend systems and have experience designing and scaling backend architecture especially microservice architectures. Some
+        <ul>
+          <li className='ps-2'>- Authentication (e.g. JWT, X.509 Certificates)</li>
+          <li className='ps-2'>- Authorization (e.g. IAM, Least Privilege)</li>
+          <li className='ps-2'>- Databases (SQL & NoSQL)</li>
+          <li className='ps-2'>- API (incl. gRPC, REST)</li>
+          <li className='ps-2'>- Deployment (Docker, Kubernetes, Terraform)</li>
+          <li className='ps-2'>- Cloud (AWS and GCP)</li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </GlareHover>
 );
 
-const Embedded = () =>
-(
-  <div
-    className="block rounded-xl border border-zinc-800/80 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+const Embedded = () => (
+  <GlareHover
+    width="100%"
+    height="auto"
+    background="transparent"
+    borderRadius="12px"
+    borderColor="#374151"
+    glareColor="#ffffff"
+    glareOpacity={0.05}
+    glareAngle={-45}
+    glareSize={200}
+    transitionDuration={650}
+    playOnce={false}
+    className="border border-zinc-800/10 shadow-xl hover:border-pink-500/10 hover:shadow-pink-500/10"
   >
-    <PiCpuDuotone size={36} color='#db2777' />
-    <h2 className="mt-4 text-xl font-bold text-white">Embedded</h2>
-    <p className="mt-1 text-sm text-zinc-300">
-      I love working close to the hardware. I have a lot of experience working with low-power micro-controllers and SBCs like Raspberry Pi, ESP and Teensy boards.
-    </p>
-    <div className="mt-1 text-sm text-zinc-300">
-      I have worked with/on:
-      <ul>
-        <li className='ps-2'>- RTOS</li>
-        <li className='ps-2'>- SPI, I2C, UART</li>
-        <li className='ps-2'>- Many IoT Devices</li>
-      </ul>
+    <div className="p-8">
+      <PiCpuDuotone size={36} color='#db2777' />
+      <h2 className="mt-4 text-xl font-bold text-white">Embedded</h2>
+      <p className="mt-1 text-sm text-zinc-300">
+        I love working close to the hardware. I have a lot of experience working with low-power micro-controllers and SBCs like Raspberry Pi, ESP and Teensy boards.
+      </p>
+      <div className="mt-1 text-sm text-zinc-300">
+        I have worked with/on:
+        <ul>
+          <li className='ps-2'>- RTOS</li>
+          <li className='ps-2'>- SPI, I2C, UART</li>
+          <li className='ps-2'>- Many IoT Devices</li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </GlareHover>
 );
 
 const Security = () => (
-  <div
-    className="block rounded-xl border border-zinc-800/80 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+  <GlareHover
+    width="100%"
+    height="auto"
+    background="transparent"
+    borderRadius="12px"
+    borderColor="#374151"
+    glareColor="#ffffff"
+    glareOpacity={0.05}
+    glareAngle={-45}
+    glareSize={200}
+    transitionDuration={650}
+    playOnce={false}
+    className="border border-zinc-800/80 shadow-xl hover:border-pink-500/10 hover:shadow-pink-500/10"
   >
-    <PiShieldCheckeredDuotone size={36} color='#db2777' />
-    <h2 className="mt-4 text-xl font-bold text-white">Security & Cryptography</h2>
-    <div className="mt-1 text-sm text-gray-300">
-      I enjoy breaking things (legally!). I studied and TA&apos;ed classes in Computer and Network Security, and Cryptography. I have also built a repertoire of skills in:
-      <ul>
-        <li className='ps-2'>- Systems Security</li>
-        <li className='ps-2'>- Network Security</li>
-        <li className='ps-2'>- Web Security</li>
-      </ul>
+    <div className="p-8">
+      <PiShieldCheckeredDuotone size={36} color='#db2777' />
+      <h2 className="mt-4 text-xl font-bold text-white">Security & Cryptography</h2>
+      <div className="mt-1 text-sm text-gray-300">
+        I enjoy breaking things (legally!). I studied and TA&apos;ed classes in Computer and Network Security, and Cryptography. I have also built a repertoire of skills in:
+        <ul>
+          <li className='ps-2'>- Systems Security</li>
+          <li className='ps-2'>- Network Security</li>
+          <li className='ps-2'>- Web Security</li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </GlareHover>
 );
 
 export default function WhatIDo() {
