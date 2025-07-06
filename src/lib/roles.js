@@ -1,9 +1,19 @@
 import logoShv from '@/images/logos/shv.png'
+import logoHive from '@/images/logos/hiveai.jpeg'
 import logoMeta from '@/images/logos/meta.png'
 import logoGoogle from '@/images/logos/google.png'
 import logoNvidia from '@/images/logos/nvidia.png'
 
 export const allRoles = [
+    {
+      slug: 'hive',
+      company: 'Hive',
+      title: 'Software Engineer',
+      logo: logoHive,
+      start: 'June 2024',
+      end: 'Present',
+      description: "Data team maintains state for Hive supporting billions of inference requests every month. I work on problems of scale"
+    },
     {
       slug: 'shv',
       company: 'Sutter Hill Ventures',

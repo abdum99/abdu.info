@@ -240,7 +240,7 @@ function Newsletter() {
 }
 
 function Work() {
-  const roles = allRoles.slice(0, 4)
+  const roles = allRoles.slice(0, 5)
 
   return (
     <motion.div
