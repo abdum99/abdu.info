@@ -12,6 +12,7 @@ import {
   LinkedInIcon,
   TwitterIcon,
 } from '@/components/SocialIcons'
+import TiltedCard from '@/components/TiltedCard'
 
 import czechiaPic from '@/images/pics/czechia_pic.jpg'
 import delahPic from '@/images/pics/delah_pic.jpg'
@@ -54,27 +55,46 @@ export default function About() {
       </Head>
       <Container className="mt-48">
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-            <div className="p-6 pb-28 w-80 mb-10 lg:max-w-lg -rotate-12 shadow-2xl bg-gradient-to-t from-gray-100 to-white relative -top-16">
+          <TiltedCard
+           imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+           altText="Warsaw, Poland. 2022"
+           captionText="Warsaw, Poland. 2022"
+           rotateAmplitude={8}
+           scaleOnHover={1.1}
+           showMobileWarning={false}
+           showTooltip={false}
+          >
+            <div className="p-6 pb-28 w-96 mb-40 lg:max-w-lg -rotate-12 shadow-2xl relative -top-16 bg-gradient-to-tr from-zinc-200 to-white " >
                 <div
                     className="shadow-inner"
                 >
                 <Image
                     src={warsawFencePic}
-                    className="w-"
+                    className=""
                 />
-                <p className='absolute bottom-4 font-mono text-blue-900 font-light tracking-tight'>Warsaw, Poland</p>
+                <p className='absolute bottom-4 font-mono text-blue-900 font-light tracking-tight'>Warsaw, Poland. 2022</p>
                 </div>
             </div>
+          </TiltedCard>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
               &quot;I&apos;m sort of a hippie pacifist in terms of general persona.&quot;
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                I grew up in a small village north of Cairo and only had three routers in my village. Three routers and a whole lot of switches and ethernet cables running between rooftops. My first &quot;debugging&quot; experience was figuring out why my internet wasn&quot; working. The anticlimactic reason was typically that one of the chickens my neighbors raised on their rooftops had bitten through a cable. 
-              </p>
-              <p>
-                More stuff here
+                WIP. If you made it here, hi <br />
+                also please go visit another page &quot;P instead<br />
+                but if you're staying anyway, check out that polaroid AAH?<br />
+                <br />
+                <br />
+                I&apos;m a dreamer.<br />
+                I refuse to grow up. <br />
+                And I refuse to think there isn&apos;t better.
+                <br />
+                <br />
+                Between day dreaming by day and staying up every night <br />
+
+                I grew up in a small village north of Cairo and only had three routers in my village. Three routers and a whole lot of switches and ethernet cables running between rooftops. My first &quot;debugging&quot; experience was figuring out why my internet wasn&apos; working. The anticlimactic reason was typically that one of the chickens my neighbors raised on their rooftops had bitten through a cable. 
               </p>
               <p>
                 words words words
@@ -109,7 +129,7 @@ export default function About() {
             <div className="max-w-xs px-2.5 lg:max-w-none">
               <Image
                 src={delahPic}
-                alt=""
+                alt="Oreo after devouring whipped cream"
                 className="aspect-[2/3] rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
               />
             </div>
