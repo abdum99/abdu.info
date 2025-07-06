@@ -11,7 +11,7 @@ const Systems = () => (
     borderRadius="12px"
     borderColor="#374151"
     glareColor="#ffffff"
-    glareOpacity={0.05}
+    glareOpacity={0.1}
     glareAngle={-45}
     glareSize={250}
     transitionDuration={650}
@@ -45,7 +45,7 @@ const Backend = () => (
     borderRadius="12px"
     borderColor="#374151"
     glareColor="#ffffff"
-    glareOpacity={0.05}
+    glareOpacity={0.1}
     glareAngle={-45}
     glareSize={200}
     transitionDuration={650}
@@ -78,7 +78,7 @@ const Embedded = () => (
     borderRadius="12px"
     borderColor="#374151"
     glareColor="#ffffff"
-    glareOpacity={0.05}
+    glareOpacity={0.1}
     glareAngle={-45}
     glareSize={200}
     transitionDuration={650}
@@ -111,7 +111,7 @@ const Security = () => (
     borderRadius="12px"
     borderColor="#374151"
     glareColor="#ffffff"
-    glareOpacity={0.05}
+    glareOpacity={0.1}
     glareAngle={-45}
     glareSize={200}
     transitionDuration={650}
@@ -135,7 +135,7 @@ const Security = () => (
 
 export default function WhatIDo() {
   return (
-    <div className="flex justify-center bg-zinc-900 text-white flex justify-evenly dark:bg-zinc-950">
+    <div className="flex justify-center bg-zinc-900 text-white flex justify-evenly dark:bg-black">
       <div className='max-w-7xl px-8 lg:px-16 xl:px-8'>
         <div className='w-full inset-0 py-8'>
           <div className="px-4 py-4 sm:px-6 sm:py-8 lg:px-8 lg:py-2">
