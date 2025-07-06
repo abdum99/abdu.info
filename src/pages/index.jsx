@@ -173,11 +173,9 @@ function ProjectSnippet({ project }) {
   )
 }
 
-function SocialLink({ icon: Icon, ...props }) {
+function SocialLink({ icon: Icon, className, ...props}) {
   return (
-    <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-700 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
-    </Link>
+    <></>
   )
 }
 
@@ -346,9 +344,9 @@ function Photos() {
   )
 
   return (
-    <div className="mb-24 max-w-full">
+    <div className="mb-36 max-w-full z-0">
       <motion.div
-        className="overflow-x-hidden py-[250px] -my-[250px]"
+        className="overflow-x-hidden py-32 -my-48"
         viewport={{ once: true, amount: 0.4 }}
       >
         <div className="flex justify-center gap-5 py-4 sm:gap-8">
@@ -400,7 +398,7 @@ function Intro() {
               Hi, I&apos;m
             </h1>
             <h1 className="text-6xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl mb-4">
-              ABDU MOHAMDY
+              ABDU
             </h1>
             <span
               className="text-4xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl"
@@ -408,37 +406,46 @@ function Intro() {
               &gt;&nbsp;
             </span>
             <ReactTyped
-              strings={["Software Engineer", "Tech Enthusiast", "Building Stuff", "Breaking Things..."]}
-              typeSpeed={40}
-              backSpeed={30}
+              strings={["Software Engineer", "Tech Enthusiast", "Building Stuff", "Breaking Things...", "chill dude"]}
+              typeSpeed={50}
+              backSpeed={20}
               backDelay={600}
               loop
               smartBackspace={false}
               className="text-4xl font-thin tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl"
             />
           </div>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400 mb-6">
             I&apos;m based out of San Francisco. I love research and hacking and I&apos;m passtionate about education accessibility and freedom of the press. I enjoy reading, cooking, and building objectively cool stuff in my free time.
           </p>
-          <div className="mt-6 mb-12 flex gap-6">
-            <SocialLink
+          <div className="mt-6 mb-24 flex gap-6 z-10">
+            <Link 
               href="https://linkedin.com/in/amohamdy99"
               aria-label="LinkedIn"
               icon={LinkedInIcon}
               target="_blank"
-            />
-            <SocialLink
+              className="group -m-1 p-1 z-10"
+            >
+              <LinkedInIcon className="h-6 w-6 transition hover:fill-[#0a66c2] fill-zinc-500 z-10" />
+            </Link>
+            <Link
               href="https://github.com/abdum99"
               aria-label="GitHub"
               icon={GitHubIcon}
               target="_blank"
-            />
-            <SocialLink
+              className="z-10"
+            > 
+              <GitHubIcon className="h-6 w-6 transition hover:fill-[#181717] dark:hover:fill-[#ffffff] fill-zinc-500 z-10" />
+            </Link>
+            <Link
               href="https://hashnode.com/@amohamdy"
               aria-label="Hashnode"
               icon={HashnodeIcon}
               target="_blank"
-            />
+              className="z-10"
+            >
+              <HashnodeIcon className="h-6 w-6 transition hover:fill-[#2862FF] fill-zinc-500 z-10" />
+            </Link>
           </div>
         </div>
       </div>
