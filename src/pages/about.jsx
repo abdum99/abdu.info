@@ -84,7 +84,7 @@ export default function About() {
               <p>
                 WIP. If you made it here, hi <br />
                 also please go visit another page &quot;P instead<br />
-                but if you're staying anyway, check out that polaroid AAH?<br />
+                but if you&apos;re staying anyway, check out that polaroid AAH?<br />
                 <br />
                 <br />
                 I&apos;m a dreamer.<br />
