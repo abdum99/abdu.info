@@ -26,10 +26,7 @@ export function Footer() {
                 <NavLink href="/">Home</NavLink>
                 <NavLink href="/experience">Experience</NavLink>
                 <NavLink href="/projects">Projects</NavLink>
-                <NavLink href="/">Life</NavLink>
-                <NavLink href="/">Notes</NavLink>
                 <NavLink href="/">Blog</NavLink>
-                <NavLink href="/">Contact</NavLink>
               </div>
               <p className="text-sm text-zinc-400 dark:text-zinc-500">
                 &copy; {new Date().getFullYear()} Abdu Mohamdy. All rights

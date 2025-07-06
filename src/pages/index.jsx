@@ -182,7 +182,7 @@ function SocialLink({ icon: Icon, ...props }) {
 }
 
 const DownloadResumeButton = () => (
-  <Button href="/Abdu_Mohamdy_Resume.pdf" target="_blank" variant="primary" className="group w-full  bg-zinc-800 hover:bg-zinc-900 dark:bg-zinc-700 dark:hover:bg-zinc-800">
+  <Button href="/Abdu_Mohamdy_Resume.pdf" target="_blank" variant="primary" className="group w-full">
     <PiFileTextDuotone size={20} className='fill-zinc-100' />
     <p className='text-zinc-100'>
       Download Resume
@@ -232,7 +232,7 @@ function Newsletter() {
             required
             className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
           />
-          <Button type="submit" className="ml-4 flex-none bg-zinc-800 hover:bg-zinc-900 dark:bg-zinc-700 dark:hover:bg-zinc-800">
+          <Button type="submit" className="ml-4 flex-none">
             Join
           </Button>
         </div>
@@ -261,7 +261,7 @@ function Work() {
         <ol className="mt-3 space-y-0.5">
           {roles.map((role, roleIndex) => (
             <li key={roleIndex} >
-              <Link href={`/experience#${role.slug}`} className="flex gap-3 py-4 px-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800">
+              <Link href={`/experience#${role.slug}`} className="flex gap-3 py-4 px-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-900">
                 <div className="relative mt-1 p-0.5 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
                   <Image src={role.logo} alt="" className="w-20 rounded-full" unoptimized />
                 </div>

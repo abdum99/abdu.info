@@ -20,7 +20,7 @@ export const allContributions = {
         domain: "sites.google.com",
         skills: ["Java", "I2C", "Graphics"],
         pic: lightSculpturePicture,
-        description: "Tock is an embedded operating system for mutually distrustful applications on low-memory and low-power microcontrollers."
+        description: "Interactive light sculpture made of many LED Acryllic Fractal Flyers and installed in a 3-story glass stairwell of the Packard building at Stanford." 
     },
     "mypyvy": {
         slug: "mypyvy",
